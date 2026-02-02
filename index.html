@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Voice Agent Studio</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="page">
+      <header class="hero">
+        <div>
+          <p class="eyebrow">Voice Agent Lab</p>
+          <h1>Create a voice agent and explore any topic.</h1>
+          <p class="subtitle">
+            Humans lead the conversation. The agent listens, forms opinions, and only speaks after you do.
+          </p>
+        </div>
+        <div class="status" id="agentStatus">
+          <span class="dot" aria-hidden="true"></span>
+          <span>Agent idle</span>
+        </div>
+      </header>
+
+      <section class="card">
+        <h2>1. Configure your agent</h2>
+        <form id="agentForm" class="agent-form">
+          <label>
+            Agent name
+            <input id="agentName" type="text" placeholder="E.g., Atlas" required />
+          </label>
+          <label>
+            Conversation topic
+            <input id="topic" type="text" placeholder="E.g., The future of clean energy" required />
+          </label>
+          <label>
+            Agent persona
+            <select id="persona">
+              <option value="optimistic strategist">Optimistic strategist</option>
+              <option value="curious analyst">Curious analyst</option>
+              <option value="calm skeptic">Calm skeptic</option>
+              <option value="empathetic storyteller">Empathetic storyteller</option>
+            </select>
+          </label>
+          <button type="submit">Create agent</button>
+        </form>
+        <p class="helper">
+          The agent will only respond once your question is complete. If you speak again, the agent will
+          immediately stop speaking.
+        </p>
+      </section>
+
+      <section class="card conversation">
+        <div class="conversation-header">
+          <h2>2. Talk with your agent</h2>
+          <div class="controls">
+            <button id="listenBtn" class="secondary" type="button">Start listening</button>
+            <button id="stopBtn" class="ghost" type="button">Stop agent</button>
+          </div>
+        </div>
+        <div id="conversationLog" class="conversation-log" aria-live="polite"></div>
+        <form id="textForm" class="text-form">
+          <input
+            id="textInput"
+            type="text"
+            placeholder="Type a question if you prefer"
+            autocomplete="off"
+          />
+          <button type="submit">Send</button>
+        </form>
+      </section>
+
+      <section class="card rules">
+        <h2>Conversation rules</h2>
+        <ul>
+          <li>Humans can interrupt the agent at any time.</li>
+          <li>The agent never speaks over you and waits until you finish.</li>
+          <li>The agent responds with an opinion grounded in the chosen topic.</li>
+        </ul>
+      </section>
+    </main>
+
+    <script src="app.js"></script>
+  </body>
+</html>
